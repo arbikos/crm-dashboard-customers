@@ -126,14 +126,12 @@ body {
     padding: 0;
 }
 
+.content {
+    display: flex;
+}
+
 .sidebar {
-    position: absolute;
     width: 306px;
-    height: 100%;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
     box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.5);
     background: rgb(255, 255, 255);
     padding: 36px 28px 76px;
@@ -325,7 +323,6 @@ body {
 .main_data {
     display: flex;
     flex-direction: column;
-    margin-left: 306px;
 }
 
 .main_data .greetings_wrap {
@@ -335,8 +332,8 @@ body {
     margin: 41px 71px 0 95px;
 }
 
-.main_data .table_data_wrap {
-    margin: 51px 71px 0 95px;
+.table_data_wrap {
+    margin: 51px 71px 51px 95px;
     border-radius: 30px;
     box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.5);
     background: rgb(255, 255, 255);
@@ -344,12 +341,52 @@ body {
     -moz-border-radius: 30px;
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
+    max-width: 968px;
+}
+
+.table_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px 27px;
+}
+
+.table_head .header_wrap .title {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 33px;
+}
+
+.table_head .header_wrap .description {
+    color: rgb(22, 192, 152);
+    margin-top: 7px;
+}
+
+.table_head .search_wrap {
+    display: flex;
+    align-items: center;
+}
+
+.table_head .search_wrap .loopkup_ico {
+    position: absolute;
+    margin: 7px 8px;
+    width: 24px;
+    height: 24px;
+}
+
+.table_head .search_wrap .search_input {
+    border-radius: 10px;
+    background: rgb(249, 251, 255);
+    height: 38px;
+    width: 216px;
+    border: 0;
+    padding: 10px 10px 10px 40px;
 }
 
 .table_header_wrap {
     border-bottom: 1px solid rgb(238, 238, 238);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 120px 130px 1fr 130px 80px;
     gap: 1em 1em;
     grid-auto-flow: row;
     padding: 13px 40px;
@@ -357,6 +394,103 @@ body {
     font-weight: 500;
 }
 
-.table_header_wrap .column_title:last-child {
+.table_header_wrap .column_title:last-child,
+.customer_wrap .status {
+    text-align: center;
+    display: flex;
     justify-content: center;
+}
+
+.customer_list_wrap .customer_wrap {
+    border-bottom: 1px solid rgb(238, 238, 238);
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 120px 130px 1fr 130px 80px;
+    gap: 1em 1em;
+    grid-auto-flow: row;
+    margin: 0 40px;
+    padding: 20px 0;
+    font-weight: 500;
+    color: rgb(41, 45, 50);
+}
+
+.customer_list_wrap .customer_wrap .status {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 12px 4px 12px;
+}
+
+.customer_list_wrap .customer_wrap .status.active {
+    box-sizing: border-box;
+    border: 1px solid rgb(0, 176, 135);
+    border-radius: 4px;
+    background: rgba(22, 192, 152, 0.38);
+    color: rgb(0, 135, 103);
+}
+
+.customer_list_wrap .customer_wrap .status.inactive {
+    box-sizing: border-box;
+    border: 1px solid rgb(223, 4, 4);
+    border-radius: 4px;
+    background: rgb(255, 197, 197);
+    color: rgb(223, 4, 4);
+}
+
+.table_footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 40px 40px;
+}
+
+.pagination_description {
+    color: rgb(181, 183, 192);
+}
+
+.pagination_wrap {
+    width: 271px;
+}
+
+.pagination_wrap a {
+    text-decoration: none;
+}
+
+.pagination_wrap,
+.pages_wrap {
+    display: flex;
+    gap: 12px;
+}
+
+.pagination_wrap .p_prev,
+.pagination_wrap .p_next,
+.pagination_wrap .page {
+    position: relative;
+    width: 26px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 9px 6px 9px;
+    box-sizing: border-box;
+    border: 1px solid rgb(238, 238, 238);
+    border-radius: 4px;
+    background: rgb(245, 245, 245);
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+}
+
+
+.pagination_wrap .p_prev:hover,
+.pagination_wrap .p_next:hover,
+.pagination_wrap .page:hover,
+.pagination_wrap .page.active {
+    border: 1px solid rgb(89, 50, 234);
+    border-radius: 4px;
+    background: rgb(89, 50, 234);
+    color: #fff;
 }
